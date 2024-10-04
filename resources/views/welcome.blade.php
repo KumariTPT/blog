@@ -8,8 +8,6 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+<button class="bg-sky-500 p-3 rounded-lg hover:bg-sky-700 text-white font-bold focus:ring-4 focus:ring-opacity-40 focus:outline-blue-400 ">Primary</button>
 </body>
 </html>
