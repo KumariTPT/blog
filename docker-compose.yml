@@ -4,11 +4,11 @@ services:
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: example
-      MAIRADB_DATABASE: blog
+      MARIADB_DATABASE: blog
     volumes:
      - mm22dbdata:/var/lib/mysql
     ports:
-     - 3305:3306
+     - 33061:3306
 
 volumes:
   mm22dbdata:
