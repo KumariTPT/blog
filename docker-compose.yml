@@ -6,9 +6,9 @@ services:
       MARIADB_ROOT_PASSWORD: example
       MARIADB_DATABASE: blog
     volumes:
-     - mm22dbdata:/var/lib/mysql
+      - mm22dbdata:/var/lib/mysql
     ports:
-     - 33061:3306
+      - 3306:3306
 
 volumes:
   mm22dbdata:
