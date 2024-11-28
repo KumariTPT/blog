@@ -4,7 +4,6 @@
         <div class="card-body">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-
                 <label class="form-control w-full">
                     <div class="label">
                         <span class="label-text">Name</span>
@@ -16,7 +15,6 @@
                         @enderror
                     </div>
                 </label>
-
                 <label class="form-control w-full">
                     <div class="label">
                         <span class="label-text">Email</span>
@@ -28,7 +26,6 @@
                         @enderror
                     </div>
                 </label>
-
                 <label class="form-control w-full">
                     <div class="label">
                         <span class="label-text">Password</span>
@@ -40,7 +37,6 @@
                         @enderror
                     </div>
                 </label>
-
                 <label class="form-control w-full">
                     <div class="label">
                         <span class="label-text">Password Confirmation</span>
@@ -53,12 +49,10 @@
                         @enderror
                     </div>
                 </label>
-
                 <div class="flex justify-between">
                     <a class="link link-primary" href="{{ route('login') }}">Already registered?</a>
                     <input type="submit" class="btn btn-primary" value="Register">
                 </div>
-                
             </form>
         </div>
     </div>

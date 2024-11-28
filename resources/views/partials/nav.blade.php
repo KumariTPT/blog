@@ -21,21 +21,42 @@
                 <li><a>Item 3</a></li>
             </ul>
         </div>
-        <a class="btn btn-ghost text-xl">daisyUI</a>
+        <a href="{{route('home')}}" class="btn btn-ghost text-xl">{{ config('app.name') }}</a>
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-            <li><a>Item 1</a></li>
-            <li>
-                <details>
-                    <summary>Parent</summary>
-                    <ul class="p-2">
-                        <li><a>Submenu 1</a></li>
-                        <li><a>Submenu 2</a></li>
-                    </ul>
-                </details>
-            </li>
-            <li><a>Item 3</a></li>
+            {{-- <li><a>Item 1</a></li> --}}
+            @foreach (App\Models\Category::where('parent_id', null)->get() as $category)
+                @if($category->children->count())
+                    <li>
+                        <details>
+                            <summary>{{$category->name}}</summary>
+                            <ul class="p-2 z-10">
+                                @foreach($category->children as $child)
+                                    <li><a href="{{route('category', ['category' => $child])}}">{{$child->name}}</a></li>
+                                @endforeach
+                            </ul>
+                        </details>
+                    </li>
+                @else
+                    <li><a href="{{route('category', ['category' => $category])}}">{{$category->name}}</a></li>
+                @endif
+
+            @endforeach
+
+
+
+            @auth
+                <li>
+                    <details>
+                        <summary>Admin</summary>
+                        <ul class="p-2 z-10">
+                            <li><a href="{{route('posts.index')}}">Posts</a></li>
+                        </ul>
+                    </details>
+                </li>
+            @endauth
+            {{-- <li><a>Item 3</a></li> --}}
         </ul>
     </div>
     <div class="navbar-end gap-2">
